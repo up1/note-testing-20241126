@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Suite Setup    เข้าไปยัง google.com
 Test Teardown    กลับไปยังหน้าแรก
+Suite Teardown    Close All Browsers
 
 *** Variables ***
 ${MY_URL}    https://www.google.com

@@ -28,5 +28,6 @@ Success case สำหรับการค้นหาคำว่า playwrigh
     Log to Console    ${data}
 
 เข้าไปยัง google.com
-    Open Browser    ${MY_URL}    browser=chrome  
+    Open Browser    ${MY_URL}    browser=chrome   
+    ...    options=add_experimental_option("detach", True) 
     Maximize Browser Window  
