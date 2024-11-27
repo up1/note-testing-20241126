@@ -26,5 +26,8 @@ test('First case', async ({ page }) => {
   // Sleep 1 second
   await page.waitForTimeout(1000);
   await loginPage.waitForSelector('#username');
-  detailPage.close();
+  await loginPage.fill('#username', 'demo-user');
+  await loginPage.fill('#passwordField', 'demo-password');
+  await loginPage.click('text=เข้าสู่ระบบ');
+  loginPage.close();
 });
