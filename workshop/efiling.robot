@@ -16,10 +16,14 @@ Failure case :: ผู้ใช้งานทำการเข้าใช้�
     Wait Until Element Is Visible   id:announceModal
     Wait Until Element Contains    id:exampleModalLabel    แจ้งข่าวสาร
     Click Link   รายละเอียด
+    Switch to detail page
+    Close the detail page and back to main page
 
+Switch to detail page
     Switch Window   NEW
     Wait Until Element Contains    xpath://div[6]/div[3]/div/h5    ATM on Internet
-    
+
+Close the detail page and back to main page
     Switch Window   MAIN
     Click Element   xpath://*[@id="announceModal"]/div/div/div[1]/button
 
