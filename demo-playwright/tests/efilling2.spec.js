@@ -28,6 +28,12 @@ test('First case', async ({ page }) => {
   await loginPage.waitForSelector('#username');
   await loginPage.fill('#username', 'demo-user');
   await loginPage.fill('#passwordField', 'demo-password');
-  await loginPage.click('text=เข้าสู่ระบบ');
+  await loginPage.click('button:has-text("เข้าสู่ระบบ")');
+
+  // Check alert with xpath
+  await loginPage.waitForSelector('xpath=//ng-snotify-toast/div/div/div[2]')
+  const result = await loginPage.$eval('xpath=//ng-snotify-toast/div/div/div[2]', el => el.textContent);
+  expect(result).toContain("ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง");
+  
   loginPage.close();
 });
