@@ -3,6 +3,7 @@ Library           SeleniumLibrary
 Test Template     Flow of login fail
 Suite Setup       Open login page
 Test Teardown     Go to login page
+Suite Teardown    Close All Browsers
 
 *** Test Cases ***
 #------------------------------------------------
@@ -31,7 +32,8 @@ Login with user=${username} and password=${password}
     Click Element    id=login_button
 
 Open login page
-    Open Browser    https://demo-login-workshop.vercel.app    browser=headlesschrome
+    Open Browser    https://demo-login-workshop.vercel.app    browser=chrome
+    ...   remote_url=http://157.245.198.46:4444/wd/hub
     Maximize Browser Window
 
 Go to login page
