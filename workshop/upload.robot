@@ -10,8 +10,6 @@ Upload 3 files with success
     Choose File	   xpath://div[1]/input[2]	  ${CURDIR}/1.txt
     Choose File	   xpath://div[1]/input[2]	  ${CURDIR}/2.txt
     Choose File	   xpath://div[1]/input[2]	  ${CURDIR}/3.txt
-    
-
 
 *** Keywords ***
 เข้ามายังหน้า upload file
