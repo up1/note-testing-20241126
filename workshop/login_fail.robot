@@ -1,13 +1,25 @@
 *** Settings ***
 Library           SeleniumLibrary
+Test Template     Flow of login fail
 
 *** Test Cases ***
-Wrong username
-    Open login page
-    Login with user=demo2 and password=mode
-    Show error message
+#------------------------------------------------
+# Name                     |  Username | Password
+#------------------------------------------------
+Wrong username                 demo2     mode
+Wrong password                 demo      mode2
+Wrong username and password    demo2     mode2
+Empty username                 ${EMPTY}  mode
+Username with 2 space          ${SPACE*2}  mode
 
 *** Keywords ***
+Flow of login fail
+    [Arguments]  ${username}    ${password}
+    Open login page
+    Login with user=${username} and password=${password}
+    Show error message
+
+
 Show error message
     Wait Until Page Contains Element    xpath://*[@data-test="page_name"]
     Wait Until Element Contains    xpath://*[@data-test="page_name"]    Error Page
