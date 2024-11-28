@@ -1,6 +1,8 @@
 *** Settings ***
 Library           SeleniumLibrary
 Test Template     Flow of login fail
+Suite Setup       Open login page
+Test Teardown     Go to login page
 
 *** Test Cases ***
 #------------------------------------------------
@@ -15,7 +17,6 @@ Username with 2 space          ${SPACE*2}  mode
 *** Keywords ***
 Flow of login fail
     [Arguments]  ${username}    ${password}
-    Open login page
     Login with user=${username} and password=${password}
     Show error message
 
@@ -30,5 +31,8 @@ Login with user=${username} and password=${password}
     Click Element    id=login_button
 
 Open login page
-    Open Browser    https://demo-login-workshop.vercel.app    browser=chrome
+    Open Browser    https://demo-login-workshop.vercel.app    browser=headlesschrome
     Maximize Browser Window
+
+Go to login page
+    Go To   https://demo-login-workshop.vercel.app
